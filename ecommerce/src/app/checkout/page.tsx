@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "../../../context/cartcontext";
+import { useCart } from "../../context/cartcontext";
 
 export default function CheckoutPage() {
   const { cart } = useCart();

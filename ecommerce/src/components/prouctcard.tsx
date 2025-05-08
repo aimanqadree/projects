@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "../context/cartcontext";
+import { useCart } from "@/context/cartcontext";
 
 type Product = {
   id: number;
