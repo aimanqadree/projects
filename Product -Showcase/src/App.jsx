@@ -31,7 +31,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       
-      <header className="flex justify-between items-center mb-6 sticky top-0 bg-gray-950 text-white h-20 ">
+      <header className="flex justify-between items-center sticky top-0 bg-white h-20 px-14 max-w-screen-xl mx-auto w-full z-50">
         <h1 className="text-3xl font-bold">Product Showcase
         <Link to="/"></Link>
         </h1>
@@ -53,7 +53,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mt-6 px-14">
               {products.map((product) => (
                 <ProductCard
                   key={product.id}

@@ -6,7 +6,7 @@ import MobilePhones from "../assets/mobilephones.jpg"
 import PowerBank from "../assets/powerbank.jpg"
 import drone from "../assets/drone.jpg"
 import tablet from "../assets/tablet.jpg"
-import  router from '../assets/router.jpg'
+import router from '../assets/router.jpg'
 import modem from "../assets/modem.jpg"
 
 const products = [
@@ -69,7 +69,7 @@ const products = [
           name: "Modem",
           price: 39.99,
           image: modem,
-        },
+        }
   ];
   
   export default products;

@@ -36,16 +36,17 @@ const CartPage = ({ cartItems, onRemoveItem,onClearCart }) => {
                 Remove
               </button>
             </div>
+
+
+
           ))}
 
        <p className="text-lg font-semibold mt-6">Total: ${totalPrice.toFixed(2)}</p>
           <button
             onClick={onClearCart}
             className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
-            Clear Cart.
+            Clear Cart
           </button>
-
-
         </div>
       )}
     </div>
