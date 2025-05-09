@@ -5,6 +5,7 @@ const ProductCard = ({ product, onAddToCart }) => {
 
   const [hovered, setHovered] = useState(false);
 
+  
   return (
     <div className="flex justify-evenly">
     <div
@@ -32,5 +33,6 @@ const ProductCard = ({ product, onAddToCart }) => {
     </div>
   );
 };
+
 
 export default ProductCard;

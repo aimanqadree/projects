@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -12,7 +11,7 @@ const CartPage = ({ cartItems, onRemoveItem,onClearCart }) => {
       {cartItems.length === 0 ? (
         <p>Your cart is empty. <Link to="/" className="text-blue-600 underline">Shop now</Link>.</p>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-4 max-w-[1690px] mx-auto ">
           {cartItems.map((item, index) => (
             <div
               key={index}
@@ -31,20 +30,18 @@ const CartPage = ({ cartItems, onRemoveItem,onClearCart }) => {
               </div>
               <button
                 onClick={() => onRemoveItem(index)}
-                className="text-red-600 hover:text-red-800"
+                className="text-red-600 hover:text-red-800 cursor-pointer"
               >
                 Remove
               </button>
             </div>
-
-
 
           ))}
 
        <p className="text-lg font-semibold mt-6">Total: ${totalPrice.toFixed(2)}</p>
           <button
             onClick={onClearCart}
-            className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+            className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer">
             Clear Cart
           </button>
         </div>
