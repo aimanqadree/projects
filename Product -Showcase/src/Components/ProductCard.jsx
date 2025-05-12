@@ -1,16 +1,13 @@
-
-import React, { useState } from "react";
+import  { useState } from "react";
 
 const ProductCard = ({ product, onAddToCart }) => {
-
   const [hovered, setHovered] = useState(false);
 
-  
   return (
-    <div className="flex justify-evenly">
+    <div className="flex justify-evenly py-7">
     <div
       className={`bg-white p-4 rounded shadow transition-transform ${
-        hovered ? "scale-105 shadow-xl" : ""
+        hovered ? "scale-105 shadow-xl  transition-colors duration-700 ease-in-out" : ""
       }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -25,9 +22,9 @@ const ProductCard = ({ product, onAddToCart }) => {
 
       <button
         onClick={() => onAddToCart(product.name)}
-        className="mt-3 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 cursor-pointer"
+        className="mt-3 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors duration-500 ease-in-out cursor-pointer"
       >
-        Add to Cart
+         Add to Cart
       </button>
     </div>
     </div>
