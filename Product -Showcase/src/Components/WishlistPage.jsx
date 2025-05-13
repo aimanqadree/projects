@@ -7,7 +7,7 @@ const WishlistPage = ({
      }) => {
   return (
     <div>
-      <h2 className="text-2xl font-bold flex justify-center">❤️ Your Wishlist</h2>
+      <h2 className="text-2xl font-bold flex justify-center mb-8">❤️ Your Wishlist</h2>
 
       {wishlist.length === 0 ? (
         <p>Your wishlist is empty. <Link to="/" className="text-blue-600 underline">Browse products</Link> to add items.</p>
@@ -16,7 +16,7 @@ const WishlistPage = ({
           {wishlist.map((product) => (
             <div
               key={product.id}
-              className="bg-white p-4 rounded shadow  transition-all relative  hover:scale-[101%] hover:shadow-xl  duration-300 ease-in-out"
+              className="bg-white p-4 max-w-64 rounded shadow  transition-all relative  hover:scale-[101%] hover:shadow-xl  duration-300 ease-in-out"
             >
               <button
                 onClick={() => onToggleWishlist(product)}

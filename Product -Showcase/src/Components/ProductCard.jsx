@@ -7,7 +7,7 @@ const ProductCard = ({
 }) => {
 
   return (
-    <div className="flex justify-evenly">
+    <div className="flex justify-evenly w-72">
       <div className="bg-white p-4 rounded shadow  transition-all relative  hover:scale-[101%] hover:shadow-xl  duration-300 ease-in-out">
         <button
           onClick={onToggleWishlist}

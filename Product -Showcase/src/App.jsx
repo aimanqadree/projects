@@ -61,20 +61,20 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="max-w-[1690px] mx-auto rounded flex justify-between items-center sticky top-0 z-50 bg-white shadow h-20 px-8">
-        <h1 className="text-3xl font-bold">
+      <header className="max-w-[1690px] mx-auto rounded flex justify-between items-center sticky top-0 z-50 bg-white shadow h-20 px-4 md:px-8">
+        <h1 className="md:text-3xl font-bold">
           <Link to="/">Product Showcase</Link>
         </h1>
-        <div className="flex gap-6 text-xl">
+        <div className="flex gap-2 md:gap-6 text-xl">
           <Link
             to="/wishlist"
-            className="relative font-medium after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-700 hover:after:scale-x-105"
+            className="relative text-[12px] sm:text-sm font-semibold md:font-medium md:text-xl after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-700 hover:after:scale-x-105"
           >
             ❤️ Wishlist: {wishlist.length}
           </Link>
           <Link
             to="/cart"
-            className="relative font-medium after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-700 hover:after:scale-x-105"
+            className="relative text-[12px] sm:text-sm font-semibold md:font-medium md:text-xl after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-700 hover:after:scale-x-105"
           >
             🛒 Cart: {cartItems.reduce((total, item) => total + item.quantity, 0)}
           </Link>
@@ -92,7 +92,7 @@ const App = () => {
           <Route
             path="/"
             element={
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-7 px-14 mt-8">
+              <div className="flex flex-wrap justify-center gap-7 px-14 mt-8">
                 {products.map((product) => (
                   <ProductCard
                     key={product.id}
