@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
 
-const CartPage = ({ cartItems, onRemoveItem, onClearCart, onQuantityChange }) => {
+const CartPage = ({ 
+  cartItems, 
+  onRemoveItem, 
+  onClearCart,
+   onQuantityChange
+   }) => {
     const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
     return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 flex justify-center">🛒 Your Cart</h2>
+      <h2 className="text-2xl font-bold flex justify-center">🛒 Your Cart</h2>
 
       {cartItems.length === 0 ? (
         <p>Your cart is empty. <Link to="/" className="text-blue-600 underline">Shop now</Link>.</p>
       ) : (
-        <div className="space-y-4 max-w-[1690px] mx-auto ">
+        <div className="space-y-4 max-w-[1690px] mx-auto mt-6">
           {cartItems.map((item, index) => (
             <div
               key={index}
