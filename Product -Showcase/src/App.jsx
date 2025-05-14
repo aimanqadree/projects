@@ -5,6 +5,7 @@ import products from "./data/product";
 import { Routes, Route, Link } from "react-router-dom";
 import CartPage from "./Components/CartPage";
 import WishlistPage from "./Components/WishlistPage";
+import Footer from "./Components/Footer";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -68,13 +69,13 @@ const App = () => {
         <div className="flex gap-2 md:gap-6 text-xl">
           <Link
             to="/wishlist"
-            className="relative text-[12px] sm:text-sm font-semibold md:font-medium md:text-xl after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-700 hover:after:scale-x-105"
+            className="relative text-[12px] sm:text-sm font-semibold md:font-medium md:text-xl after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-105"
           >
             ❤️ Wishlist: {wishlist.length}
           </Link>
           <Link
             to="/cart"
-            className="relative text-[12px] sm:text-sm font-semibold md:font-medium md:text-xl after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-700 hover:after:scale-x-105"
+            className="relative text-[12px] sm:text-sm font-semibold md:font-medium md:text-xl after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-105"
           >
             🛒 Cart: {cartItems.reduce((total, item) => total + item.quantity, 0)}
           </Link>
@@ -128,6 +129,7 @@ const App = () => {
           />
         </Routes>
       </div>
+      <Footer/>
     </div>
   );
 };
