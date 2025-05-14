@@ -1,16 +1,13 @@
+import { useProductStore } from "../store/product-data";
 
-const ProductCard = ({
-  product,
-  onAddToCart,
-  onToggleWishlist,
-  isInWishlist,
-}) => {
+const ProductCard = ({ product, onAddToCart, isInWishlist }) => {
+  const { handleToggleWishlist } = useProductStore();
 
   return (
     <div className="flex justify-evenly w-72">
       <div className="bg-white p-4 rounded shadow  transition-all relative  hover:scale-[101%] hover:shadow-xl  duration-300 ease-in-out">
         <button
-          onClick={onToggleWishlist}
+          onClick={() => handleToggleWishlist(product)}
           className="absolute top-2 right-2 text-2xl z-10 cursor-pointer"
         >
           {isInWishlist ? "❤️" : "🤍"}

@@ -19,22 +19,24 @@ const Footer = () => {
        <div className="space-y-3">
         <h2 className="text-lg font-bold">Help</h2>
            <ul className="space-y-2 text-gray-300">
-            <li><a href="#" className="hover:text-white cursor-pointer">Contact</a></li>
-            <li><a href="#" className="hover:text-white cursor-pointer">Shipping</a></li>
-            <li><a href="#" className="hover:text-white cursor-pointer">Returns</a></li>
+            <li><Link to= "/contact" className="hover:text-white cursor-pointer">Contact</Link></li>
+            <li><Link to="/shipping" className="hover:text-white cursor-pointer">Shipping</Link></li>
+            <li><Link to="/return" className="hover:text-white cursor-pointer">Returns</Link></li>
           </ul>
        </div>
 
        <div className="space-y-3">
         <h2 className="text-lg font-bold">Content</h2>
-        <p className="text-gray-300 cursor-pointer">support@productshowcase.com</p>
-        <p className="text-gray-300 cursor-pointer">+91 6289456799</p>
+        <p className="text-gray-300">support@productshowcase.com</p>
+        <p className="text-gray-300">+91 6289456799</p>
        </div>
 
-       <div className="bg-gray-900 py-4 text-gray-300 text-lg">
-        <p className=""> Product Showcase. All rights reserved</p>
-       </div>
     </div>
+
+    <div className="bg-gray-900 py-4 text-gray-300 text-lg">
+        <p className="text-center">Bringing the best to your doorstep. © 2025 Product Showcase.</p>
+       </div>
+      
   </footer>
   )
 }

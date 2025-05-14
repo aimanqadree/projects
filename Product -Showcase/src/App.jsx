@@ -1,64 +1,24 @@
-
-import { useState } from "react";
 import ProductCard from "./Components/ProductCard";
 import products from "./data/product";
 import { Routes, Route, Link } from "react-router-dom";
 import CartPage from "./Components/CartPage";
 import WishlistPage from "./Components/WishlistPage";
 import Footer from "./Components/Footer";
+import Contact from "./Components/Contact";
+import { useProductStore } from "./store/product-data";
+import Shipping from "./Components/Shipping";
+import Return from "./Components/Return";
+
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
-  const [wishlist, setWishlist] = useState([]);
-  const [message, setMessage] = useState("");
-
-  const handleAddToCart = (product) => {
-    const existingItem = cartItems.find((item) => item.id === product.id);
-    if (existingItem) {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
-    }
-    setMessage(`${product.name} added to cart ✅`);
-    setTimeout(() => setMessage(""), 2000);
-  };
-
-  const handleRemoveFromCart = (index) => {
-    const updatedCart = [...cartItems];
-    updatedCart.splice(index, 1);
-    setCartItems(updatedCart);
-  };
-
-  const handleQuantityChange = (id, newQuantity) => {
-    if (newQuantity < 1) return;
-    setCartItems(
-      cartItems.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
-  };
-
-  const handleClearCart = () => {
-    setCartItems([]);
-  };
-
-  const handleToggleWishlist = (product) => {
-    const isInWishlist = wishlist.some((item) => item.id === product.id);
-    if (isInWishlist) {
-      setWishlist(wishlist.filter((item) => item.id !== product.id));
-      setMessage(`${product.name} removed from wishlist ❌`);
-    } else {
-      setWishlist([...wishlist, product]);
-      setMessage(`${product.name} added to wishlist ❤️`);
-    }
-    setTimeout(() => setMessage(""), 2000);
-  };
+  const {
+    cartItems,
+    wishlist,
+    message,
+    handleAddToCart,
+    handleRemoveFromCart,
+    handleQuantityChange
+  } = useProductStore();
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -77,7 +37,8 @@ const App = () => {
             to="/cart"
             className="relative text-[12px] sm:text-sm font-semibold md:font-medium md:text-xl after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:scale-x-105"
           >
-            🛒 Cart: {cartItems.reduce((total, item) => total + item.quantity, 0)}
+            🛒 Cart:{" "}
+            {cartItems.reduce((total, item) => total + item.quantity, 0)}
           </Link>
         </div>
       </header>
@@ -99,8 +60,9 @@ const App = () => {
                     key={product.id}
                     product={product}
                     onAddToCart={() => handleAddToCart(product)}
-                    onToggleWishlist={() => handleToggleWishlist(product)}
-                    isInWishlist={wishlist.some((item) => item.id === product.id)}
+                    isInWishlist={wishlist.some(
+                      (item) => item.id === product.id
+                    )}
                   />
                 ))}
               </div>
@@ -112,7 +74,6 @@ const App = () => {
               <CartPage
                 cartItems={cartItems}
                 onRemoveItem={handleRemoveFromCart}
-                onClearCart={handleClearCart}
                 onQuantityChange={handleQuantityChange}
               />
             }
@@ -122,14 +83,16 @@ const App = () => {
             element={
               <WishlistPage
                 wishlist={wishlist}
-                onToggleWishlist={handleToggleWishlist}
                 onAddToCart={handleAddToCart}
               />
             }
           />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/shipping" element={<Shipping/>} />
+          <Route path="/return" element={<Return/>} />
         </Routes>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

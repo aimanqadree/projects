@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
+import { useProductStore } from "../store/product-data";
 
-const WishlistPage = ({
-   wishlist,
-    onToggleWishlist,
-     onAddToCart
-     }) => {
+const WishlistPage = ({ onAddToCart }) => {
+  const { handleToggleWishlist, wishlist } = useProductStore();
   return (
     <div>
-      <h2 className="text-2xl font-bold flex justify-center mb-8">❤️ Your Wishlist</h2>
+      <h2 className="text-2xl font-bold flex justify-center">
+        ❤️ Your Wishlist
+      </h2>
 
       {wishlist.length === 0 ? (
-        <p>Your wishlist is empty. <Link to="/" className="text-blue-600 underline">Browse products</Link> to add items.</p>
+        <p>
+          Your wishlist is empty.{" "}
+          <Link to="/" className="text-blue-600 underline">
+            Browse products
+          </Link>{" "}
+          to add items.
+        </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-7 px-14 max-w-[1690px] mx-auto">
           {wishlist.map((product) => (
@@ -19,7 +25,7 @@ const WishlistPage = ({
               className="bg-white p-4 max-w-64 rounded shadow  transition-all relative  hover:scale-[101%] hover:shadow-xl  duration-300 ease-in-out"
             >
               <button
-                onClick={() => onToggleWishlist(product)}
+                onClick={() => handleToggleWishlist(product)}
                 className="absolute top-2 right-2 z-10 cursor-pointer"
               >
                 ❌
