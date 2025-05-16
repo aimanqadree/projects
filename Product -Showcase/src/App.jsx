@@ -43,7 +43,7 @@ const App = () => {
         </div>
       </header>
 
-      <div className="p-6 py- overflow-hidden">
+      <div className="overflow-hidden">
         {message && (
           <div className="fixed top-24 left-1/2 transform -translate-x-1/2 p-2 bg-green-100 border border-green-400 text-green-700 rounded shadow-md z-40 max-w-[100%] w-full md:max-w-[1690px] text-center mb-14">
             {message}

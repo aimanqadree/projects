@@ -9,11 +9,11 @@ const CartPage = ({ cartItems, onRemoveItem, onQuantityChange }) => {
   );
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold flex justify-center">🛒 Your Cart</h2>
+    <div  className="min-h-[56vh]">
+      <h2 className="text-2xl font-bold flex justify-center mt-8">🛒 Your Cart</h2>
 
       {cartItems.length === 0 ? (
-        <p>
+        <p className="px-37 mt-5">
           Your cart is empty.{" "}
           <Link to="/" className="text-blue-600 underline">
             Shop now

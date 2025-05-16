@@ -4,13 +4,13 @@ import { useProductStore } from "../store/product-data";
 const WishlistPage = ({ onAddToCart }) => {
   const { handleToggleWishlist, wishlist } = useProductStore();
   return (
-    <div>
-      <h2 className="text-2xl font-bold flex justify-center">
+    <div className="min-h-[56vh]">
+      <h2 className="text-2xl font-bold flex justify-center mt-8">
         ❤️ Your Wishlist
       </h2>
 
       {wishlist.length === 0 ? (
-        <p>
+        <p className="px-37 mt-5">
           Your wishlist is empty.{" "}
           <Link to="/" className="text-blue-600 underline">
             Browse products
