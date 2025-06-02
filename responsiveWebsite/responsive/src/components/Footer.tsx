@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   //   FaDribbbleSquare,
   FaLinkedin,
@@ -7,11 +8,15 @@ import {
   FaInstagram,
   FaTwitterSquare,
 } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <div className="max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300">
       <div>
-        <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT</h1>
+        <Link to={"/"}>
+          <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT</h1>
+        </Link>
+
         <p className="py-4">
           {" "}
           Empowering developers and businesses with reliable, scalable, and
@@ -113,11 +118,6 @@ const Footer = () => {
             <li className="py-2 text-sm cursor-pointer text-gray-300">
               <span className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#00df9a] after:transition-all after:duration-300 hover:after:w-full">
                 Press
-              </span>
-            </li>
-            <li className="py-2 text-sm cursor-pointer text-gray-300">
-              <span className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#00df9a] after:transition-all after:duration-300 hover:after:w-full">
-                Careers
               </span>
             </li>
           </ul>
